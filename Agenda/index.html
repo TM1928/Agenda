@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agenda de Contatos</title>
+  
+  <!-- Fonte moderna (opcional, mas recomendada) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Agenda de Contatos</h1>
+
+  <div class="container">
+    <div class="topo">
+      <div class="busca form-group">
+        <label for="filtro">Filtrar contatos:</label>
+        <input type="text" id="filtro" placeholder="Digite um nome para filtrar..." />
+      </div>
+      
+      <div>
+        <span id="total">Total de contatos: 0</span>
+      </div>
+    </div>
+
+    <form id="form-contato">
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" required />
+      </div>
+      
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required />
+      </div>
+      
+      <div class="form-group">
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" required placeholder="(00) 00000-0000" />
+      </div>
+      
+      <div>
+        <button type="submit" id="btn-salvar" class="primary">Cadastrar</button>
+        <button type="button" id="btn-limpar">Limpar formulário</button>
+      </div>
+    </form>
+
+    <!-- Área de edição -->
+    <div id="form-edicao" class="form-edicao" style="display:none;">
+      <h3>Editando contato</h3>
+      <input type="hidden" id="edit-id" />
+      <div class="form-group">
+        <label>Nome:</label>
+        <input type="text" id="edit-nome" />
+      </div>
+      <div class="form-group">
+        <label>E-mail:</label>
+        <input type="email" id="edit-email" />
+      </div>
+      <div class="form-group">
+        <label>Telefone:</label>
+        <input type="tel" id="edit-telefone" />
+      </div>
+      <div>
+        <button id="btn-atualizar" class="primary">Salvar alterações</button>
+        <button id="btn-cancelar">Cancelar</button>
+      </div>
+    </div>
+
+    <table id="tabela-contatos">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Telefone</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="corpo-tabela"></tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
